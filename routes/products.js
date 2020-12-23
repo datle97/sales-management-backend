@@ -11,6 +11,7 @@ router.get("/:product", async (req, res) => {
     const skip = (page - 1) * limit;
     // lấy các sản phẩm theo param
     const products = await Products[product].find({}).limit(limit).skip(skip);
+    console.log(typeof products[0].price);
     res.json(products);
   } catch (err) {
     res.json({ message: "product err" });
